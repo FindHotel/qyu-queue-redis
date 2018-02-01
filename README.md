@@ -1,8 +1,11 @@
 # Qyu::Queue::Redis
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/qyu/queue/redis`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](https://img.shields.io/gem/v/qyu-queue-redis.svg)](https://rubygems.org/gems/qyu-queue-redis)
+[![Build Status](https://travis-ci.org/FindHotel/qyu-queue-redis.svg)](https://travis-ci.org/FindHotel/qyu-queue-redis)
 
-TODO: Delete this and the text above, and describe your gem
+## Requirements:
+
+* Ruby 2.4.0 or newer
 
 ## Installation
 
@@ -19,6 +22,31 @@ And then execute:
 Or install it yourself as:
 
     $ gem install qyu-queue-redis
+
+## Configuration
+
+To start using Qyu; you need a queue configuration and a state store configuration. Here's an example:
+```ruby
+require 'qyu'
+require 'qyu/queue/redis'
+
+Qyu.configure(
+  queue: {
+    type: :redis,
+    host: redis_host,
+    port: redis_port,
+    password: redis_password,
+    db: redis_db_number
+  },
+  store: {
+    type: :memory
+    # Or one of the other production-ready queues available
+    # Check https://github.com/FindHotel/qyu/wiki/State-Stores
+  },
+  # optional Defaults to STDOUT
+  logger: Logger.new(STDOUT)
+)
+```
 
 ## Usage
 
