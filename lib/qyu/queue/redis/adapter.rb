@@ -25,7 +25,7 @@ module Qyu
 
         private
 
-        def get_or_create_queue_url(queue_name)
+        def get_or_create_queue(queue_name)
           # TODO
         end
 
