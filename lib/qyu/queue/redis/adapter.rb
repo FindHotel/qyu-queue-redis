@@ -38,11 +38,3 @@ module Qyu
     end
   end
 end
-
-if defined?(Qyu::Config::MessageQueue)
-  Qyu::Config::MessageQueue.register(Qyu::Queue::Redis::Adapter)
-end
-
-if defined?(Qyu::Factory::MessageQueue)
-  Qyu::Factory::MessageQueue.register(Qyu::Queue::Redis::Adapter)
-end
